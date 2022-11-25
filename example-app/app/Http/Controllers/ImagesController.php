@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Images;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
@@ -40,6 +41,7 @@ class ImagesController extends Controller
     {
         $data = $request->all();
         $filename = $data['image']->getClientOriginalName();
+        $name = $data['name'];
 
         $data['image']->move(Storage::path('/public/image/').'origin/',$filename);
 
@@ -49,8 +51,15 @@ class ImagesController extends Controller
         $thumbnail->save(Storage::path('/public/image/').'thumbnail/'.$filename);
 
         //сохраняем в бд
-        $data['image'] = $filename;
-        Images::create($data);
+        if (DB::table('images')->where('name', $name)->exists()) {
+            $data['image'] = $filename;
+            $data['name'] = strval($name).strval(random_int(1,9999999));
+            Images::create($data);
+        }else{
+            $data['image'] = $filename;
+            Images::create($data);
+        }
+
 
         return redirect()->route('images.index');
     }
@@ -63,7 +72,7 @@ class ImagesController extends Controller
      */
     public function show(Images $images)
     {
-        //
+
     }
 
     /**
