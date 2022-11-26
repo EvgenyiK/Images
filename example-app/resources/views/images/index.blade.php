@@ -26,5 +26,20 @@
 </div>
 
 
+<div class="container mt-5 mb-3 d">
+    <div class="row">
+        <h1>Сортировка по дате</h1>
+        {{$images->sortBy('created_at')}}
+    </div>
+</div>
+
+
+<div class="container mt-5 mb-3 d">
+    <div class="row">
+        <h1>Сортировка по имени</h1>
+        {{$images->sortBy('name')}}
+    </div>
+</div>
+
 </body>
 </html>

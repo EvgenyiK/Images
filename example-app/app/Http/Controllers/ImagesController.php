@@ -64,48 +64,4 @@ class ImagesController extends Controller
         return redirect()->route('images.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Images  $images
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Images $images)
-    {
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Images  $images
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Images $images)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Images  $images
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Images $images)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Images  $images
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Images $images)
-    {
-        //
-    }
 }

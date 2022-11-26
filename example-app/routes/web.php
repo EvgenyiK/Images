@@ -19,3 +19,4 @@ use App\Http\Controllers\ImagesController;
 });*/
 
 Route::resource('images', ImagesController::class);
+
